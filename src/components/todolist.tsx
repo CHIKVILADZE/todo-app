@@ -39,6 +39,7 @@ function TodoList ({todos, setTodos, hours, min, time, StyledButton, timeInp, se
     }
     const handleComplete = (todo :any) =>{
         setTodos(
+            
             todos.map((list) =>{
                 if(list.id === todo.id){
                    
@@ -52,15 +53,16 @@ function TodoList ({todos, setTodos, hours, min, time, StyledButton, timeInp, se
         )
 
     }
+    todos.length = Math.min(todos.length, 4);
 
   
 
     return(
         <div className='list'>
-         
+            
             {todos.map((todo) =>(
                 <li key={todo.id}>
-
+                    
                     <div className="box">
                         <div className='minisection'>
                             <ListInput  type="text" value={todo.title} onChange={(event) => event.preventDefault()}/>
